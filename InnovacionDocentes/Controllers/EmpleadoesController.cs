@@ -10,7 +10,7 @@ using InnovacionDocentes.Models;
 
 namespace InnovacionDocentes.Controllers
 {
-    [Authorize (Users ="israelparedesdiaz29@gmail.com")]
+    [Authorize(Users="israelparedesdiaz29@gmail.com")]
     public class EmpleadoesController : Controller
     {
 
