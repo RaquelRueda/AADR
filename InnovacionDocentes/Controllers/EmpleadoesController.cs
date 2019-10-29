@@ -12,9 +12,11 @@ namespace InnovacionDocentes.Controllers
 {
     public class EmpleadoesController : Controller
     {
+
         private innovaciontibdEntities db = new innovaciontibdEntities();
 
         // GET: Empleadoes
+        [Authorize(Users = "israelparedesdiaz29@gmail.com")]
         public ActionResult Index()
         {
             var empleado = db.Empleado.Include(e => e.CatEstadoRegistro).Include(e => e.CatNivel).Include(e => e.CatPuesto).Include(e => e.Instituciones);
@@ -37,6 +39,7 @@ namespace InnovacionDocentes.Controllers
         }
 
         // GET: Empleadoes/Create
+        [Authorize(Users = "israelparedesdiaz29@gmail.com")]
         public ActionResult Create()
         {
             ViewBag.idCatEstadoR = new SelectList(db.CatEstadoRegistro, "idEstadoRegistro", "strValor");
@@ -91,6 +94,7 @@ namespace InnovacionDocentes.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public ActionResult Edit([Bind(Include = "idEmpleado,strNombre,strAPaterno,strAMaterno,idNivel,strRFC,strCurp,strFechaNacimiento,idPuesto,idInstitucion,idCatEstadoR")] Empleado empleado)
         {
             if (ModelState.IsValid)
@@ -107,6 +111,7 @@ namespace InnovacionDocentes.Controllers
         }
 
         // GET: Empleadoes/Delete/5
+        [Authorize(Users = "israelparedesdiaz29@gmail.com")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

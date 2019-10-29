@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace InnovacionDocentes.Controllers
 {
-   [Authorize (Users ="raquel.marlen.99@gmail.com")]
+  
     public class HomeController : Controller
     {
         public ActionResult Index()
