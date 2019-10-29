@@ -13,7 +13,7 @@ namespace InnovacionDocentes.Controllers
     [Authorize(Users = "raquel.marlen.99@gmail.com")]
     public class AprendizajesController : Controller
     {
-        private innovaciontibdEntities db = new innovaciontibdEntities();
+        private innovaciontibdEntities1 db = new innovaciontibdEntities1();
 
         // GET: Aprendizajes
         public ActionResult Index()

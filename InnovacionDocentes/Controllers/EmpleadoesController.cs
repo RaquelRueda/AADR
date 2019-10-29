@@ -13,7 +13,7 @@ namespace InnovacionDocentes.Controllers
     public class EmpleadoesController : Controller
     {
 
-        private innovaciontibdEntities db = new innovaciontibdEntities();
+        private innovaciontibdEntities1 db = new innovaciontibdEntities1();
 
         // GET: Empleadoes
         [Authorize(Users = "israelparedesdiaz29@gmail.com")]

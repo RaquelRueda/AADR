@@ -13,7 +13,7 @@ namespace InnovacionDocentes.Controllers
     
     public class EncuadresController : Controller
     {
-        private innovaciontibdEntities db = new innovaciontibdEntities();
+        private innovaciontibdEntities1 db = new innovaciontibdEntities1();
 
         // GET: Encuadres
         public ActionResult Index()
