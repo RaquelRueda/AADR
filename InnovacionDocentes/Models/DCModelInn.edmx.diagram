@@ -56,6 +56,7 @@
         <AssociationConnector Association="innovaciontibdModel.FK_dbo_Proposito_dbo_Tema_idTema" ManuallyRouted="false" />
         <AssociationConnector Association="innovaciontibdModel.Asignatura_Empleado" ManuallyRouted="false" />
         <AssociationConnector Association="innovaciontibdModel.EvaluacionTemas" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_Encuadre_CatInstrumentosEvaluacion" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

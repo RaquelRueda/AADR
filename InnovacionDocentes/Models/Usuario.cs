@@ -21,6 +21,5 @@ namespace InnovacionDocentes.Models
         public int idEmpleado { get; set; }
     
         public virtual Empleado Empleado { get; set; }
-        public bool Succeeded { get; internal set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="innovaciontibdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="innovaciontibdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -166,14 +166,6 @@
           <Property Name="strDesarollo" Type="varchar" MaxLength="100" />
           <Property Name="strFin" Type="varchar" MaxLength="100" />
           <Property Name="strObservacion" Type="varchar" MaxLength="100" />
-        </EntityType>
-        <EntityType Name="EvaluacionTemas">
-          <Key>
-            <PropertyRef Name="idEvaluacion" />
-            <PropertyRef Name="idTema" />
-          </Key>
-          <Property Name="idEvaluacion" Type="int" Nullable="false" />
-          <Property Name="idTema" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Instituciones">
           <Key>
@@ -471,34 +463,6 @@ advertencia 6002: La tabla o vista 'innovaciontibd.sys.database_firewall_rules' 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_EvaluacionTemas_dbo_CatInstrumentosEvaluacion_idEvaluacion">
-          <End Role="CatInstrumentosEvaluacion" Type="Self.CatInstrumentosEvaluacion" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="EvaluacionTemas" Type="Self.EvaluacionTemas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CatInstrumentosEvaluacion">
-              <PropertyRef Name="idEvaluacion" />
-            </Principal>
-            <Dependent Role="EvaluacionTemas">
-              <PropertyRef Name="idEvaluacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_EvaluacionTemas_dbo_Tema_idTema">
-          <End Role="Tema" Type="Self.Tema" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="EvaluacionTemas" Type="Self.EvaluacionTemas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tema">
-              <PropertyRef Name="idTema" />
-            </Principal>
-            <Dependent Role="EvaluacionTemas">
-              <PropertyRef Name="idTema" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_dbo_Instituciones_dbo_CatEstado_idEstado">
           <End Role="CatEstado" Type="Self.CatEstado" Multiplicity="1" />
           <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
@@ -607,6 +571,18 @@ advertencia 6002: La tabla o vista 'innovaciontibd.sys.database_firewall_rules' 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Encuadre_CatInstrumentosEvaluacion">
+          <End Role="CatInstrumentosEvaluacion" Type="Self.CatInstrumentosEvaluacion" Multiplicity="0..1" />
+          <End Role="Encuadre" Type="Self.Encuadre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatInstrumentosEvaluacion">
+              <PropertyRef Name="idEvaluacion" />
+            </Principal>
+            <Dependent Role="Encuadre">
+              <PropertyRef Name="idEvaluacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="innovaciontibdModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Aprendizaje" EntityType="Self.Aprendizaje" Schema="dbo" store:Type="Tables" />
@@ -626,7 +602,6 @@ advertencia 6002: La tabla o vista 'innovaciontibd.sys.database_firewall_rules' 
           <EntitySet Name="Dosificacion" EntityType="Self.Dosificacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Encuadre" EntityType="Self.Encuadre" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EvaluacionTemas" EntityType="Self.EvaluacionTemas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Instituciones" EntityType="Self.Instituciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proposito" EntityType="Self.Proposito" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -715,14 +690,6 @@ advertencia 6002: La tabla o vista 'innovaciontibd.sys.database_firewall_rules' 
             <End Role="Tema" EntitySet="Tema" />
             <End Role="Encuadre" EntitySet="Encuadre" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_EvaluacionTemas_dbo_CatInstrumentosEvaluacion_idEvaluacion" Association="Self.FK_dbo_EvaluacionTemas_dbo_CatInstrumentosEvaluacion_idEvaluacion">
-            <End Role="CatInstrumentosEvaluacion" EntitySet="CatInstrumentosEvaluacion" />
-            <End Role="EvaluacionTemas" EntitySet="EvaluacionTemas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_EvaluacionTemas_dbo_Tema_idTema" Association="Self.FK_dbo_EvaluacionTemas_dbo_Tema_idTema">
-            <End Role="Tema" EntitySet="Tema" />
-            <End Role="EvaluacionTemas" EntitySet="EvaluacionTemas" />
-          </AssociationSet>
           <AssociationSet Name="FK_dbo_Instituciones_dbo_CatEstado_idEstado" Association="Self.FK_dbo_Instituciones_dbo_CatEstado_idEstado">
             <End Role="CatEstado" EntitySet="CatEstado" />
             <End Role="Instituciones" EntitySet="Instituciones" />
@@ -759,9 +726,12 @@ advertencia 6002: La tabla o vista 'innovaciontibd.sys.database_firewall_rules' 
             <End Role="Empleado" EntitySet="Empleado" />
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
+          <AssociationSet Name="FK_Encuadre_CatInstrumentosEvaluacion" Association="Self.FK_Encuadre_CatInstrumentosEvaluacion">
+            <End Role="CatInstrumentosEvaluacion" EntitySet="CatInstrumentosEvaluacion" />
+            <End Role="Encuadre" EntitySet="Encuadre" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="innovaciontibdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -831,6 +801,7 @@ advertencia 6002: La tabla o vista 'innovaciontibd.sys.database_firewall_rules' 
           <Property Name="idEvaluacion" Type="Int32" Nullable="false" />
           <Property Name="strDescripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Tema" Relationship="Self.EvaluacionTemas" FromRole="CatInstrumentosEvaluacion" ToRole="Tema" />
+          <NavigationProperty Name="Encuadre" Relationship="innovaciontibdModel.FK_Encuadre_CatInstrumentosEvaluacion" FromRole="CatInstrumentosEvaluacion" ToRole="Encuadre" />
         </EntityType>
         <EntityType Name="CatJerarquizacion">
           <Key>
@@ -957,6 +928,7 @@ advertencia 6002: La tabla o vista 'innovaciontibd.sys.database_firewall_rules' 
           <NavigationProperty Name="Empleado" Relationship="Self.FK_dbo_Encuadre_dbo_Empleado_idEmpleado" FromRole="Encuadre" ToRole="Empleado" />
           <NavigationProperty Name="Proposito" Relationship="Self.FK_dbo_Encuadre_dbo_Proposito_idProposito" FromRole="Encuadre" ToRole="Proposito" />
           <NavigationProperty Name="Tema" Relationship="Self.FK_dbo_Encuadre_dbo_Tema_idTema" FromRole="Encuadre" ToRole="Tema" />
+          <NavigationProperty Name="CatInstrumentosEvaluacion" Relationship="innovaciontibdModel.FK_Encuadre_CatInstrumentosEvaluacion" FromRole="Encuadre" ToRole="CatInstrumentosEvaluacion" />
         </EntityType>
         <EntityType Name="Instituciones">
           <Key>
@@ -1488,7 +1460,23 @@ advertencia 6002: La tabla o vista 'innovaciontibd.sys.database_firewall_rules' 
             <End Role="CatInstrumentosEvaluacion" EntitySet="CatInstrumentosEvaluacion" />
             <End Role="Tema" EntitySet="Tema" />
           </AssociationSet>
+          <AssociationSet Name="FK_Encuadre_CatInstrumentosEvaluacion" Association="innovaciontibdModel.FK_Encuadre_CatInstrumentosEvaluacion">
+            <End Role="CatInstrumentosEvaluacion" EntitySet="CatInstrumentosEvaluacion" />
+            <End Role="Encuadre" EntitySet="Encuadre" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Encuadre_CatInstrumentosEvaluacion">
+          <End Type="innovaciontibdModel.CatInstrumentosEvaluacion" Role="CatInstrumentosEvaluacion" Multiplicity="0..1" />
+          <End Type="innovaciontibdModel.Encuadre" Role="Encuadre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatInstrumentosEvaluacion">
+              <PropertyRef Name="idEvaluacion" />
+            </Principal>
+            <Dependent Role="Encuadre">
+              <PropertyRef Name="idEvaluacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1746,14 +1734,6 @@ advertencia 6002: La tabla o vista 'innovaciontibd.sys.database_firewall_rules' 
             </EndProperty>
             <EndProperty Name="Empleado">
               <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="EvaluacionTemas" TypeName="innovaciontibdModel.EvaluacionTemas" StoreEntitySet="EvaluacionTemas">
-            <EndProperty Name="CatInstrumentosEvaluacion">
-              <ScalarProperty Name="idEvaluacion" ColumnName="idEvaluacion" />
-            </EndProperty>
-            <EndProperty Name="Tema">
-              <ScalarProperty Name="idTema" ColumnName="idTema" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

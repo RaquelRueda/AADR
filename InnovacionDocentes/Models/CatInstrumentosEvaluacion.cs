@@ -18,6 +18,7 @@ namespace InnovacionDocentes.Models
         public CatInstrumentosEvaluacion()
         {
             this.Tema = new HashSet<Tema>();
+            this.Encuadre = new HashSet<Encuadre>();
         }
     
         public int idEvaluacion { get; set; }
@@ -25,5 +26,7 @@ namespace InnovacionDocentes.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tema> Tema { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Encuadre> Encuadre { get; set; }
     }
 }

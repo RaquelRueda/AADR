@@ -39,5 +39,6 @@ namespace InnovacionDocentes.Models
         public virtual Empleado Empleado { get; set; }
         public virtual Proposito Proposito { get; set; }
         public virtual Tema Tema { get; set; }
+        public virtual CatInstrumentosEvaluacion CatInstrumentosEvaluacion { get; set; }
     }
 }
