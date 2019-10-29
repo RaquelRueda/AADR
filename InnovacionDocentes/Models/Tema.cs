@@ -20,7 +20,6 @@ namespace InnovacionDocentes.Models
             this.Contenido = new HashSet<Contenido>();
             this.Encuadre = new HashSet<Encuadre>();
             this.Proposito = new HashSet<Proposito>();
-            this.CatInstrumentosEvaluacion = new HashSet<CatInstrumentosEvaluacion>();
         }
     
         public int idTema { get; set; }
@@ -39,7 +38,5 @@ namespace InnovacionDocentes.Models
         public virtual ICollection<Encuadre> Encuadre { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proposito> Proposito { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CatInstrumentosEvaluacion> CatInstrumentosEvaluacion { get; set; }
     }
 }

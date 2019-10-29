@@ -34,11 +34,11 @@ namespace InnovacionDocentes.Models
     
         public virtual CatAsignatura CatAsignatura { get; set; }
         public virtual CatGrado CatGrado { get; set; }
+        public virtual CatInstrumentosEvaluacion CatInstrumentosEvaluacion { get; set; }
         public virtual CatTrimestre CatTrimestre { get; set; }
         public virtual Contenido Contenido { get; set; }
         public virtual Empleado Empleado { get; set; }
         public virtual Proposito Proposito { get; set; }
         public virtual Tema Tema { get; set; }
-        public virtual CatInstrumentosEvaluacion CatInstrumentosEvaluacion { get; set; }
     }
 }
