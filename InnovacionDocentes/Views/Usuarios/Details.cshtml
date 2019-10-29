@@ -1,0 +1,51 @@
+﻿@model InnovacionDocentes.Models.Usuario
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.strNickName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strNickName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.straMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.straMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empleado.strNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empleado.strNombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idUsuario }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

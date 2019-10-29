@@ -1,0 +1,727 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="innovaciontibdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Aprendizaje">
+    <Key>
+      <PropertyRef Name="idAprendizaje" />
+    </Key>
+    <Property Name="idAprendizaje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="strDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tema" Relationship="Self.FK_dbo_Tema_dbo_Aprendizaje_idAprendizaje" FromRole="Aprendizaje" ToRole="Tema" />
+  </EntityType>
+  <EntityType Name="CatAsignatura">
+    <Key>
+      <PropertyRef Name="idAsignatura" />
+    </Key>
+    <Property Name="idAsignatura" Type="Int32" Nullable="false" />
+    <Property Name="strDescripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idCatGrado" Type="Int32" />
+    <NavigationProperty Name="CatGrado" Relationship="Self.FK_dbo_CatAsignatura_dbo_CatGrado_idCatGrado" FromRole="CatAsignatura" ToRole="CatGrado" />
+    <NavigationProperty Name="Contenido" Relationship="Self.FK_dbo_Contenido_dbo_CatAsignatura_idAsignatura" FromRole="CatAsignatura" ToRole="Contenido" />
+    <NavigationProperty Name="Encuadre" Relationship="Self.FK_dbo_Encuadre_dbo_CatAsignatura_idAsignatura" FromRole="CatAsignatura" ToRole="Encuadre" />
+    <NavigationProperty Name="Empleado" Relationship="Self.Asignatura_Empleado" FromRole="CatAsignatura" ToRole="Empleado" />
+  </EntityType>
+  <EntityType Name="CatEstado">
+    <Key>
+      <PropertyRef Name="idEstado" />
+    </Key>
+    <Property Name="idEstado" Type="Int32" Nullable="false" />
+    <Property Name="strDescripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CatMunicipio" Relationship="Self.FK_dbo_CatMunicipio_dbo_CatEstado_idCatEstado" FromRole="CatEstado" ToRole="CatMunicipio" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_CatEstado_idEstado" FromRole="CatEstado" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="CatEstadoRegistro">
+    <Key>
+      <PropertyRef Name="idEstadoRegistro" />
+    </Key>
+    <Property Name="idEstadoRegistro" Type="Int32" Nullable="false" />
+    <Property Name="strValor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="strDescricpion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_dbo_Empleado_dbo_CatEstadoRegistro_idCatEstadoR" FromRole="CatEstadoRegistro" ToRole="Empleado" />
+  </EntityType>
+  <EntityType Name="CatGrado">
+    <Key>
+      <PropertyRef Name="idGrado" />
+    </Key>
+    <Property Name="idGrado" Type="Int32" Nullable="false" />
+    <Property Name="strDescripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idNivel" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CatAsignatura" Relationship="Self.FK_dbo_CatAsignatura_dbo_CatGrado_idCatGrado" FromRole="CatGrado" ToRole="CatAsignatura" />
+    <NavigationProperty Name="CatNivel" Relationship="Self.FK_dbo_CatGrado_dbo_CatNivel_idNivel" FromRole="CatGrado" ToRole="CatNivel" />
+    <NavigationProperty Name="Encuadre" Relationship="Self.FK_dbo_Encuadre_dbo_CatGrado_idCatGrado" FromRole="CatGrado" ToRole="Encuadre" />
+  </EntityType>
+  <EntityType Name="CatInstrumentosEvaluacion">
+    <Key>
+      <PropertyRef Name="idEvaluacion" />
+    </Key>
+    <Property Name="idEvaluacion" Type="Int32" Nullable="false" />
+    <Property Name="strDescripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Tema" Relationship="Self.EvaluacionTemas" FromRole="CatInstrumentosEvaluacion" ToRole="Tema" />
+  </EntityType>
+  <EntityType Name="CatJerarquizacion">
+    <Key>
+      <PropertyRef Name="idJerarquizacion" />
+    </Key>
+    <Property Name="idJerarquizacion" Type="Int32" Nullable="false" />
+    <Property Name="strDescripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tema" Relationship="Self.FK_dbo_Tema_dbo_CatJerarquizacion_idCatJeraquizacion" FromRole="CatJerarquizacion" ToRole="Tema" />
+  </EntityType>
+  <EntityType Name="CatMunicipio">
+    <Key>
+      <PropertyRef Name="idMunicipio" />
+    </Key>
+    <Property Name="idMunicipio" Type="Int32" Nullable="false" />
+    <Property Name="strDescripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idCatEstado" Type="Int32" />
+    <NavigationProperty Name="CatEstado" Relationship="Self.FK_dbo_CatMunicipio_dbo_CatEstado_idCatEstado" FromRole="CatMunicipio" ToRole="CatEstado" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Instituciones_dbo_CatMunicipio_idMunicipio" FromRole="CatMunicipio" ToRole="Instituciones" />
+  </EntityType>
+  <EntityType Name="CatNivel">
+    <Key>
+      <PropertyRef Name="idNivel" />
+    </Key>
+    <Property Name="idNivel" Type="Int32" Nullable="false" />
+    <Property Name="strDescripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CatGrado" Relationship="Self.FK_dbo_CatGrado_dbo_CatNivel_idNivel" FromRole="CatNivel" ToRole="CatGrado" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_dbo_Empleado_dbo_CatNivel_idNivel" FromRole="CatNivel" ToRole="Empleado" />
+  </EntityType>
+  <EntityType Name="CatPuesto">
+    <Key>
+      <PropertyRef Name="idPuesto" />
+    </Key>
+    <Property Name="idPuesto" Type="Int32" Nullable="false" />
+    <Property Name="strDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_dbo_Empleado_dbo_CatPuesto_idPuesto" FromRole="CatPuesto" ToRole="Empleado" />
+  </EntityType>
+  <EntityType Name="CatTipoCompetencia">
+    <Key>
+      <PropertyRef Name="idTipoCom" />
+    </Key>
+    <Property Name="idTipoCom" Type="Int32" Nullable="false" />
+    <Property Name="strDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Proposito" Relationship="Self.FK_dbo_Proposito_dbo_CatTipoCompetencia_idCatTipoCompetencia" FromRole="CatTipoCompetencia" ToRole="Proposito" />
+  </EntityType>
+  <EntityType Name="CatTrimestre">
+    <Key>
+      <PropertyRef Name="idTrimestre" />
+    </Key>
+    <Property Name="idTrimestre" Type="Int32" Nullable="false" />
+    <Property Name="strDescripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="strInicio" Type="DateTime" Precision="3" />
+    <Property Name="strFin" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Encuadre" Relationship="Self.FK_dbo_Encuadre_dbo_CatTrimestre_idTrimestre" FromRole="CatTrimestre" ToRole="Encuadre" />
+    <NavigationProperty Name="TrimestreTema" Relationship="Self.FK_dbo_TrimestreTema_dbo_CatTrimestre_idTrimestre" FromRole="CatTrimestre" ToRole="TrimestreTema" />
+  </EntityType>
+  <EntityType Name="Contenido">
+    <Key>
+      <PropertyRef Name="idContenido" />
+    </Key>
+    <Property Name="idContenido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="strDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idTema" Type="Int32" />
+    <Property Name="idAsignatura" Type="Int32" />
+    <NavigationProperty Name="CatAsignatura" Relationship="Self.FK_dbo_Contenido_dbo_CatAsignatura_idAsignatura" FromRole="Contenido" ToRole="CatAsignatura" />
+    <NavigationProperty Name="Tema" Relationship="Self.FK_dbo_Contenido_dbo_Tema_idTema" FromRole="Contenido" ToRole="Tema" />
+    <NavigationProperty Name="Encuadre" Relationship="Self.FK_dbo_Encuadre_dbo_Contenido_idContenido" FromRole="Contenido" ToRole="Encuadre" />
+  </EntityType>
+  <EntityType Name="Dosificacion">
+    <Key>
+      <PropertyRef Name="idDosificacion" />
+    </Key>
+    <Property Name="idDosificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dteDuracionTiempo" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Tema" Relationship="Self.FK_dbo_Tema_dbo_Dosificacion_idDosificacion" FromRole="Dosificacion" ToRole="Tema" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="idEmpleado" />
+    </Key>
+    <Property Name="idEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="strNombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="strAPaterno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="strAMaterno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idNivel" Type="Int32" Nullable="false" />
+    <Property Name="strRFC" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="strCurp" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="strFechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="idPuesto" Type="Int32" Nullable="false" />
+    <Property Name="idInstitucion" Type="Int32" Nullable="false" />
+    <Property Name="idCatEstadoR" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CatEstadoRegistro" Relationship="Self.FK_dbo_Empleado_dbo_CatEstadoRegistro_idCatEstadoR" FromRole="Empleado" ToRole="CatEstadoRegistro" />
+    <NavigationProperty Name="CatNivel" Relationship="Self.FK_dbo_Empleado_dbo_CatNivel_idNivel" FromRole="Empleado" ToRole="CatNivel" />
+    <NavigationProperty Name="CatPuesto" Relationship="Self.FK_dbo_Empleado_dbo_CatPuesto_idPuesto" FromRole="Empleado" ToRole="CatPuesto" />
+    <NavigationProperty Name="Instituciones" Relationship="Self.FK_dbo_Empleado_dbo_Instituciones_idInstitucion" FromRole="Empleado" ToRole="Instituciones" />
+    <NavigationProperty Name="Encuadre" Relationship="Self.FK_dbo_Encuadre_dbo_Empleado_idEmpleado" FromRole="Empleado" ToRole="Encuadre" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_dbo_Usuario_dbo_Empleado_idEmpleado" FromRole="Empleado" ToRole="Usuario" />
+    <NavigationProperty Name="CatAsignatura" Relationship="Self.Asignatura_Empleado" FromRole="Empleado" ToRole="CatAsignatura" />
+  </EntityType>
+  <EntityType Name="Encuadre">
+    <Key>
+      <PropertyRef Name="idEncuadre" />
+    </Key>
+    <Property Name="idEncuadre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dteFechaInicio" Type="DateTime" Precision="3" />
+    <Property Name="dteFechaFin" Type="DateTime" Precision="3" />
+    <Property Name="idAsignatura" Type="Int32" />
+    <Property Name="idCatGrado" Type="Int32" />
+    <Property Name="idEmpleado" Type="Int32" />
+    <Property Name="idTrimestre" Type="Int32" />
+    <Property Name="strDuracion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idTema" Type="Int32" />
+    <Property Name="idContenido" Type="Int32" />
+    <Property Name="idProposito" Type="Int32" />
+    <Property Name="idEvaluacion" Type="Int32" />
+    <Property Name="idAprendizaje" Type="Int32" />
+    <Property Name="strInicio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="strDesarollo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="strFin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="strObservacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CatAsignatura" Relationship="Self.FK_dbo_Encuadre_dbo_CatAsignatura_idAsignatura" FromRole="Encuadre" ToRole="CatAsignatura" />
+    <NavigationProperty Name="CatGrado" Relationship="Self.FK_dbo_Encuadre_dbo_CatGrado_idCatGrado" FromRole="Encuadre" ToRole="CatGrado" />
+    <NavigationProperty Name="CatTrimestre" Relationship="Self.FK_dbo_Encuadre_dbo_CatTrimestre_idTrimestre" FromRole="Encuadre" ToRole="CatTrimestre" />
+    <NavigationProperty Name="Contenido" Relationship="Self.FK_dbo_Encuadre_dbo_Contenido_idContenido" FromRole="Encuadre" ToRole="Contenido" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_dbo_Encuadre_dbo_Empleado_idEmpleado" FromRole="Encuadre" ToRole="Empleado" />
+    <NavigationProperty Name="Proposito" Relationship="Self.FK_dbo_Encuadre_dbo_Proposito_idProposito" FromRole="Encuadre" ToRole="Proposito" />
+    <NavigationProperty Name="Tema" Relationship="Self.FK_dbo_Encuadre_dbo_Tema_idTema" FromRole="Encuadre" ToRole="Tema" />
+  </EntityType>
+  <EntityType Name="Instituciones">
+    <Key>
+      <PropertyRef Name="idInstintucion" />
+    </Key>
+    <Property Name="idInstintucion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="strNombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="strClave" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEstado" Type="Int32" Nullable="false" />
+    <Property Name="idMunicipio" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CatEstado" Relationship="Self.FK_dbo_Instituciones_dbo_CatEstado_idEstado" FromRole="Instituciones" ToRole="CatEstado" />
+    <NavigationProperty Name="CatMunicipio" Relationship="Self.FK_dbo_Instituciones_dbo_CatMunicipio_idMunicipio" FromRole="Instituciones" ToRole="CatMunicipio" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_dbo_Empleado_dbo_Instituciones_idInstitucion" FromRole="Instituciones" ToRole="Empleado" />
+  </EntityType>
+  <EntityType Name="Proposito">
+    <Key>
+      <PropertyRef Name="idProposito" />
+    </Key>
+    <Property Name="idProposito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="strDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idTema" Type="Int32" Nullable="false" />
+    <Property Name="idCatTipoCompetencia" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CatTipoCompetencia" Relationship="Self.FK_dbo_Proposito_dbo_CatTipoCompetencia_idCatTipoCompetencia" FromRole="Proposito" ToRole="CatTipoCompetencia" />
+    <NavigationProperty Name="Encuadre" Relationship="Self.FK_dbo_Encuadre_dbo_Proposito_idProposito" FromRole="Proposito" ToRole="Encuadre" />
+    <NavigationProperty Name="Tema" Relationship="Self.FK_dbo_Proposito_dbo_Tema_idTema" FromRole="Proposito" ToRole="Tema" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tema">
+    <Key>
+      <PropertyRef Name="idTema" />
+    </Key>
+    <Property Name="idTema" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="strNombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="strDescripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idCatJeraquizacion" Type="Int32" Nullable="false" />
+    <Property Name="idDosificacion" Type="Int32" Nullable="false" />
+    <Property Name="idAprendizaje" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Aprendizaje" Relationship="Self.FK_dbo_Tema_dbo_Aprendizaje_idAprendizaje" FromRole="Tema" ToRole="Aprendizaje" />
+    <NavigationProperty Name="CatJerarquizacion" Relationship="Self.FK_dbo_Tema_dbo_CatJerarquizacion_idCatJeraquizacion" FromRole="Tema" ToRole="CatJerarquizacion" />
+    <NavigationProperty Name="Contenido" Relationship="Self.FK_dbo_Contenido_dbo_Tema_idTema" FromRole="Tema" ToRole="Contenido" />
+    <NavigationProperty Name="Dosificacion" Relationship="Self.FK_dbo_Tema_dbo_Dosificacion_idDosificacion" FromRole="Tema" ToRole="Dosificacion" />
+    <NavigationProperty Name="Encuadre" Relationship="Self.FK_dbo_Encuadre_dbo_Tema_idTema" FromRole="Tema" ToRole="Encuadre" />
+    <NavigationProperty Name="Proposito" Relationship="Self.FK_dbo_Proposito_dbo_Tema_idTema" FromRole="Tema" ToRole="Proposito" />
+    <NavigationProperty Name="CatInstrumentosEvaluacion" Relationship="Self.EvaluacionTemas" FromRole="Tema" ToRole="CatInstrumentosEvaluacion" />
+  </EntityType>
+  <EntityType Name="TrimestreTema">
+    <Key>
+      <PropertyRef Name="idTrimestre" />
+      <PropertyRef Name="idTema" />
+    </Key>
+    <Property Name="idTrimestre" Type="Int32" Nullable="false" />
+    <Property Name="idTema" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CatTrimestre" Relationship="Self.FK_dbo_TrimestreTema_dbo_CatTrimestre_idTrimestre" FromRole="TrimestreTema" ToRole="CatTrimestre" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="strNickName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="straMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="strPassword" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Empleado" Relationship="Self.FK_dbo_Usuario_dbo_Empleado_idEmpleado" FromRole="Usuario" ToRole="Empleado" />
+  </EntityType>
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <Association Name="FK_dbo_Tema_dbo_Aprendizaje_idAprendizaje">
+    <End Role="Aprendizaje" Type="Self.Aprendizaje" Multiplicity="1" />
+    <End Role="Tema" Type="Self.Tema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aprendizaje">
+        <PropertyRef Name="idAprendizaje" />
+      </Principal>
+      <Dependent Role="Tema">
+        <PropertyRef Name="idAprendizaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_CatAsignatura_dbo_CatGrado_idCatGrado">
+    <End Role="CatGrado" Type="Self.CatGrado" Multiplicity="0..1" />
+    <End Role="CatAsignatura" Type="Self.CatAsignatura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatGrado">
+        <PropertyRef Name="idGrado" />
+      </Principal>
+      <Dependent Role="CatAsignatura">
+        <PropertyRef Name="idCatGrado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Contenido_dbo_CatAsignatura_idAsignatura">
+    <End Role="CatAsignatura" Type="Self.CatAsignatura" Multiplicity="0..1" />
+    <End Role="Contenido" Type="Self.Contenido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatAsignatura">
+        <PropertyRef Name="idAsignatura" />
+      </Principal>
+      <Dependent Role="Contenido">
+        <PropertyRef Name="idAsignatura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Encuadre_dbo_CatAsignatura_idAsignatura">
+    <End Role="CatAsignatura" Type="Self.CatAsignatura" Multiplicity="0..1" />
+    <End Role="Encuadre" Type="Self.Encuadre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatAsignatura">
+        <PropertyRef Name="idAsignatura" />
+      </Principal>
+      <Dependent Role="Encuadre">
+        <PropertyRef Name="idAsignatura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_CatMunicipio_dbo_CatEstado_idCatEstado">
+    <End Role="CatEstado" Type="Self.CatEstado" Multiplicity="0..1" />
+    <End Role="CatMunicipio" Type="Self.CatMunicipio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatEstado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="CatMunicipio">
+        <PropertyRef Name="idCatEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_CatEstado_idEstado">
+    <End Role="CatEstado" Type="Self.CatEstado" Multiplicity="1" />
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatEstado">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Empleado_dbo_CatEstadoRegistro_idCatEstadoR">
+    <End Role="CatEstadoRegistro" Type="Self.CatEstadoRegistro" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatEstadoRegistro">
+        <PropertyRef Name="idEstadoRegistro" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="idCatEstadoR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_CatGrado_dbo_CatNivel_idNivel">
+    <End Role="CatNivel" Type="Self.CatNivel" Multiplicity="1" />
+    <End Role="CatGrado" Type="Self.CatGrado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatNivel">
+        <PropertyRef Name="idNivel" />
+      </Principal>
+      <Dependent Role="CatGrado">
+        <PropertyRef Name="idNivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Encuadre_dbo_CatGrado_idCatGrado">
+    <End Role="CatGrado" Type="Self.CatGrado" Multiplicity="0..1" />
+    <End Role="Encuadre" Type="Self.Encuadre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatGrado">
+        <PropertyRef Name="idGrado" />
+      </Principal>
+      <Dependent Role="Encuadre">
+        <PropertyRef Name="idCatGrado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Tema_dbo_CatJerarquizacion_idCatJeraquizacion">
+    <End Role="CatJerarquizacion" Type="Self.CatJerarquizacion" Multiplicity="1" />
+    <End Role="Tema" Type="Self.Tema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatJerarquizacion">
+        <PropertyRef Name="idJerarquizacion" />
+      </Principal>
+      <Dependent Role="Tema">
+        <PropertyRef Name="idCatJeraquizacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Instituciones_dbo_CatMunicipio_idMunicipio">
+    <End Role="CatMunicipio" Type="Self.CatMunicipio" Multiplicity="1" />
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatMunicipio">
+        <PropertyRef Name="idMunicipio" />
+      </Principal>
+      <Dependent Role="Instituciones">
+        <PropertyRef Name="idMunicipio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Empleado_dbo_CatNivel_idNivel">
+    <End Role="CatNivel" Type="Self.CatNivel" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatNivel">
+        <PropertyRef Name="idNivel" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="idNivel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Empleado_dbo_CatPuesto_idPuesto">
+    <End Role="CatPuesto" Type="Self.CatPuesto" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatPuesto">
+        <PropertyRef Name="idPuesto" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="idPuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Proposito_dbo_CatTipoCompetencia_idCatTipoCompetencia">
+    <End Role="CatTipoCompetencia" Type="Self.CatTipoCompetencia" Multiplicity="1" />
+    <End Role="Proposito" Type="Self.Proposito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatTipoCompetencia">
+        <PropertyRef Name="idTipoCom" />
+      </Principal>
+      <Dependent Role="Proposito">
+        <PropertyRef Name="idCatTipoCompetencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Encuadre_dbo_CatTrimestre_idTrimestre">
+    <End Role="CatTrimestre" Type="Self.CatTrimestre" Multiplicity="0..1" />
+    <End Role="Encuadre" Type="Self.Encuadre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatTrimestre">
+        <PropertyRef Name="idTrimestre" />
+      </Principal>
+      <Dependent Role="Encuadre">
+        <PropertyRef Name="idTrimestre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TrimestreTema_dbo_CatTrimestre_idTrimestre">
+    <End Role="CatTrimestre" Type="Self.CatTrimestre" Multiplicity="1" />
+    <End Role="TrimestreTema" Type="Self.TrimestreTema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatTrimestre">
+        <PropertyRef Name="idTrimestre" />
+      </Principal>
+      <Dependent Role="TrimestreTema">
+        <PropertyRef Name="idTrimestre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Contenido_dbo_Tema_idTema">
+    <End Role="Tema" Type="Self.Tema" Multiplicity="0..1" />
+    <End Role="Contenido" Type="Self.Contenido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tema">
+        <PropertyRef Name="idTema" />
+      </Principal>
+      <Dependent Role="Contenido">
+        <PropertyRef Name="idTema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Encuadre_dbo_Contenido_idContenido">
+    <End Role="Contenido" Type="Self.Contenido" Multiplicity="0..1" />
+    <End Role="Encuadre" Type="Self.Encuadre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contenido">
+        <PropertyRef Name="idContenido" />
+      </Principal>
+      <Dependent Role="Encuadre">
+        <PropertyRef Name="idContenido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Tema_dbo_Dosificacion_idDosificacion">
+    <End Role="Dosificacion" Type="Self.Dosificacion" Multiplicity="1" />
+    <End Role="Tema" Type="Self.Tema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dosificacion">
+        <PropertyRef Name="idDosificacion" />
+      </Principal>
+      <Dependent Role="Tema">
+        <PropertyRef Name="idDosificacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Empleado_dbo_Instituciones_idInstitucion">
+    <End Role="Instituciones" Type="Self.Instituciones" Multiplicity="1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instituciones">
+        <PropertyRef Name="idInstintucion" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="idInstitucion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Encuadre_dbo_Empleado_idEmpleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+    <End Role="Encuadre" Type="Self.Encuadre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="idEmpleado" />
+      </Principal>
+      <Dependent Role="Encuadre">
+        <PropertyRef Name="idEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Usuario_dbo_Empleado_idEmpleado">
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleado">
+        <PropertyRef Name="idEmpleado" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Encuadre_dbo_Proposito_idProposito">
+    <End Role="Proposito" Type="Self.Proposito" Multiplicity="0..1" />
+    <End Role="Encuadre" Type="Self.Encuadre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proposito">
+        <PropertyRef Name="idProposito" />
+      </Principal>
+      <Dependent Role="Encuadre">
+        <PropertyRef Name="idProposito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Encuadre_dbo_Tema_idTema">
+    <End Role="Tema" Type="Self.Tema" Multiplicity="0..1" />
+    <End Role="Encuadre" Type="Self.Encuadre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tema">
+        <PropertyRef Name="idTema" />
+      </Principal>
+      <Dependent Role="Encuadre">
+        <PropertyRef Name="idTema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Proposito_dbo_Tema_idTema">
+    <End Role="Tema" Type="Self.Tema" Multiplicity="1" />
+    <End Role="Proposito" Type="Self.Proposito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tema">
+        <PropertyRef Name="idTema" />
+      </Principal>
+      <Dependent Role="Proposito">
+        <PropertyRef Name="idTema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Asignatura_Empleado">
+    <End Role="CatAsignatura" Type="Self.CatAsignatura" Multiplicity="*" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+  </Association>
+  <Association Name="EvaluacionTemas">
+    <End Role="CatInstrumentosEvaluacion" Type="Self.CatInstrumentosEvaluacion" Multiplicity="*" />
+    <End Role="Tema" Type="Self.Tema" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="innovaciontibdEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="Aprendizaje" EntityType="Self.Aprendizaje" />
+    <EntitySet Name="CatAsignatura" EntityType="Self.CatAsignatura" />
+    <EntitySet Name="CatEstado" EntityType="Self.CatEstado" />
+    <EntitySet Name="CatEstadoRegistro" EntityType="Self.CatEstadoRegistro" />
+    <EntitySet Name="CatGrado" EntityType="Self.CatGrado" />
+    <EntitySet Name="CatInstrumentosEvaluacion" EntityType="Self.CatInstrumentosEvaluacion" />
+    <EntitySet Name="CatJerarquizacion" EntityType="Self.CatJerarquizacion" />
+    <EntitySet Name="CatMunicipio" EntityType="Self.CatMunicipio" />
+    <EntitySet Name="CatNivel" EntityType="Self.CatNivel" />
+    <EntitySet Name="CatPuesto" EntityType="Self.CatPuesto" />
+    <EntitySet Name="CatTipoCompetencia" EntityType="Self.CatTipoCompetencia" />
+    <EntitySet Name="CatTrimestre" EntityType="Self.CatTrimestre" />
+    <EntitySet Name="Contenido" EntityType="Self.Contenido" />
+    <EntitySet Name="Dosificacion" EntityType="Self.Dosificacion" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+    <EntitySet Name="Encuadre" EntityType="Self.Encuadre" />
+    <EntitySet Name="Instituciones" EntityType="Self.Instituciones" />
+    <EntitySet Name="Proposito" EntityType="Self.Proposito" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Tema" EntityType="Self.Tema" />
+    <EntitySet Name="TrimestreTema" EntityType="Self.TrimestreTema" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
+    <AssociationSet Name="FK_dbo_Tema_dbo_Aprendizaje_idAprendizaje" Association="Self.FK_dbo_Tema_dbo_Aprendizaje_idAprendizaje">
+      <End Role="Aprendizaje" EntitySet="Aprendizaje" />
+      <End Role="Tema" EntitySet="Tema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_CatAsignatura_dbo_CatGrado_idCatGrado" Association="Self.FK_dbo_CatAsignatura_dbo_CatGrado_idCatGrado">
+      <End Role="CatGrado" EntitySet="CatGrado" />
+      <End Role="CatAsignatura" EntitySet="CatAsignatura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Contenido_dbo_CatAsignatura_idAsignatura" Association="Self.FK_dbo_Contenido_dbo_CatAsignatura_idAsignatura">
+      <End Role="CatAsignatura" EntitySet="CatAsignatura" />
+      <End Role="Contenido" EntitySet="Contenido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Encuadre_dbo_CatAsignatura_idAsignatura" Association="Self.FK_dbo_Encuadre_dbo_CatAsignatura_idAsignatura">
+      <End Role="CatAsignatura" EntitySet="CatAsignatura" />
+      <End Role="Encuadre" EntitySet="Encuadre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_CatMunicipio_dbo_CatEstado_idCatEstado" Association="Self.FK_dbo_CatMunicipio_dbo_CatEstado_idCatEstado">
+      <End Role="CatEstado" EntitySet="CatEstado" />
+      <End Role="CatMunicipio" EntitySet="CatMunicipio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_CatEstado_idEstado" Association="Self.FK_dbo_Instituciones_dbo_CatEstado_idEstado">
+      <End Role="CatEstado" EntitySet="CatEstado" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Empleado_dbo_CatEstadoRegistro_idCatEstadoR" Association="Self.FK_dbo_Empleado_dbo_CatEstadoRegistro_idCatEstadoR">
+      <End Role="CatEstadoRegistro" EntitySet="CatEstadoRegistro" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_CatGrado_dbo_CatNivel_idNivel" Association="Self.FK_dbo_CatGrado_dbo_CatNivel_idNivel">
+      <End Role="CatNivel" EntitySet="CatNivel" />
+      <End Role="CatGrado" EntitySet="CatGrado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Encuadre_dbo_CatGrado_idCatGrado" Association="Self.FK_dbo_Encuadre_dbo_CatGrado_idCatGrado">
+      <End Role="CatGrado" EntitySet="CatGrado" />
+      <End Role="Encuadre" EntitySet="Encuadre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Tema_dbo_CatJerarquizacion_idCatJeraquizacion" Association="Self.FK_dbo_Tema_dbo_CatJerarquizacion_idCatJeraquizacion">
+      <End Role="CatJerarquizacion" EntitySet="CatJerarquizacion" />
+      <End Role="Tema" EntitySet="Tema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Instituciones_dbo_CatMunicipio_idMunicipio" Association="Self.FK_dbo_Instituciones_dbo_CatMunicipio_idMunicipio">
+      <End Role="CatMunicipio" EntitySet="CatMunicipio" />
+      <End Role="Instituciones" EntitySet="Instituciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Empleado_dbo_CatNivel_idNivel" Association="Self.FK_dbo_Empleado_dbo_CatNivel_idNivel">
+      <End Role="CatNivel" EntitySet="CatNivel" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Empleado_dbo_CatPuesto_idPuesto" Association="Self.FK_dbo_Empleado_dbo_CatPuesto_idPuesto">
+      <End Role="CatPuesto" EntitySet="CatPuesto" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Proposito_dbo_CatTipoCompetencia_idCatTipoCompetencia" Association="Self.FK_dbo_Proposito_dbo_CatTipoCompetencia_idCatTipoCompetencia">
+      <End Role="CatTipoCompetencia" EntitySet="CatTipoCompetencia" />
+      <End Role="Proposito" EntitySet="Proposito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Encuadre_dbo_CatTrimestre_idTrimestre" Association="Self.FK_dbo_Encuadre_dbo_CatTrimestre_idTrimestre">
+      <End Role="CatTrimestre" EntitySet="CatTrimestre" />
+      <End Role="Encuadre" EntitySet="Encuadre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TrimestreTema_dbo_CatTrimestre_idTrimestre" Association="Self.FK_dbo_TrimestreTema_dbo_CatTrimestre_idTrimestre">
+      <End Role="CatTrimestre" EntitySet="CatTrimestre" />
+      <End Role="TrimestreTema" EntitySet="TrimestreTema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Contenido_dbo_Tema_idTema" Association="Self.FK_dbo_Contenido_dbo_Tema_idTema">
+      <End Role="Tema" EntitySet="Tema" />
+      <End Role="Contenido" EntitySet="Contenido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Encuadre_dbo_Contenido_idContenido" Association="Self.FK_dbo_Encuadre_dbo_Contenido_idContenido">
+      <End Role="Contenido" EntitySet="Contenido" />
+      <End Role="Encuadre" EntitySet="Encuadre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Tema_dbo_Dosificacion_idDosificacion" Association="Self.FK_dbo_Tema_dbo_Dosificacion_idDosificacion">
+      <End Role="Dosificacion" EntitySet="Dosificacion" />
+      <End Role="Tema" EntitySet="Tema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Empleado_dbo_Instituciones_idInstitucion" Association="Self.FK_dbo_Empleado_dbo_Instituciones_idInstitucion">
+      <End Role="Instituciones" EntitySet="Instituciones" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Encuadre_dbo_Empleado_idEmpleado" Association="Self.FK_dbo_Encuadre_dbo_Empleado_idEmpleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Encuadre" EntitySet="Encuadre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Usuario_dbo_Empleado_idEmpleado" Association="Self.FK_dbo_Usuario_dbo_Empleado_idEmpleado">
+      <End Role="Empleado" EntitySet="Empleado" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Encuadre_dbo_Proposito_idProposito" Association="Self.FK_dbo_Encuadre_dbo_Proposito_idProposito">
+      <End Role="Proposito" EntitySet="Proposito" />
+      <End Role="Encuadre" EntitySet="Encuadre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Encuadre_dbo_Tema_idTema" Association="Self.FK_dbo_Encuadre_dbo_Tema_idTema">
+      <End Role="Tema" EntitySet="Tema" />
+      <End Role="Encuadre" EntitySet="Encuadre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Proposito_dbo_Tema_idTema" Association="Self.FK_dbo_Proposito_dbo_Tema_idTema">
+      <End Role="Tema" EntitySet="Tema" />
+      <End Role="Proposito" EntitySet="Proposito" />
+    </AssociationSet>
+    <AssociationSet Name="Asignatura_Empleado" Association="Self.Asignatura_Empleado">
+      <End Role="CatAsignatura" EntitySet="CatAsignatura" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="EvaluacionTemas" Association="Self.EvaluacionTemas">
+      <End Role="CatInstrumentosEvaluacion" EntitySet="CatInstrumentosEvaluacion" />
+      <End Role="Tema" EntitySet="Tema" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

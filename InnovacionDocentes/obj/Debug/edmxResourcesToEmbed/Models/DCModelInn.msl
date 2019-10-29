@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="innovaciontibdModelStoreContainer" CdmEntityContainer="innovaciontibdEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="innovaciontibdModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aprendizaje">
+      <EntityTypeMapping TypeName="innovaciontibdModel.Aprendizaje">
+        <MappingFragment StoreEntitySet="Aprendizaje">
+          <ScalarProperty Name="idAprendizaje" ColumnName="idAprendizaje" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatAsignatura">
+      <EntityTypeMapping TypeName="innovaciontibdModel.CatAsignatura">
+        <MappingFragment StoreEntitySet="CatAsignatura">
+          <ScalarProperty Name="idAsignatura" ColumnName="idAsignatura" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+          <ScalarProperty Name="idCatGrado" ColumnName="idCatGrado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatEstado">
+      <EntityTypeMapping TypeName="innovaciontibdModel.CatEstado">
+        <MappingFragment StoreEntitySet="CatEstado">
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatEstadoRegistro">
+      <EntityTypeMapping TypeName="innovaciontibdModel.CatEstadoRegistro">
+        <MappingFragment StoreEntitySet="CatEstadoRegistro">
+          <ScalarProperty Name="idEstadoRegistro" ColumnName="idEstadoRegistro" />
+          <ScalarProperty Name="strValor" ColumnName="strValor" />
+          <ScalarProperty Name="strDescricpion" ColumnName="strDescricpion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatGrado">
+      <EntityTypeMapping TypeName="innovaciontibdModel.CatGrado">
+        <MappingFragment StoreEntitySet="CatGrado">
+          <ScalarProperty Name="idGrado" ColumnName="idGrado" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+          <ScalarProperty Name="idNivel" ColumnName="idNivel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatInstrumentosEvaluacion">
+      <EntityTypeMapping TypeName="innovaciontibdModel.CatInstrumentosEvaluacion">
+        <MappingFragment StoreEntitySet="CatInstrumentosEvaluacion">
+          <ScalarProperty Name="idEvaluacion" ColumnName="idEvaluacion" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatJerarquizacion">
+      <EntityTypeMapping TypeName="innovaciontibdModel.CatJerarquizacion">
+        <MappingFragment StoreEntitySet="CatJerarquizacion">
+          <ScalarProperty Name="idJerarquizacion" ColumnName="idJerarquizacion" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatMunicipio">
+      <EntityTypeMapping TypeName="innovaciontibdModel.CatMunicipio">
+        <MappingFragment StoreEntitySet="CatMunicipio">
+          <ScalarProperty Name="idMunicipio" ColumnName="idMunicipio" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+          <ScalarProperty Name="idCatEstado" ColumnName="idCatEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatNivel">
+      <EntityTypeMapping TypeName="innovaciontibdModel.CatNivel">
+        <MappingFragment StoreEntitySet="CatNivel">
+          <ScalarProperty Name="idNivel" ColumnName="idNivel" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatPuesto">
+      <EntityTypeMapping TypeName="innovaciontibdModel.CatPuesto">
+        <MappingFragment StoreEntitySet="CatPuesto">
+          <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatTipoCompetencia">
+      <EntityTypeMapping TypeName="innovaciontibdModel.CatTipoCompetencia">
+        <MappingFragment StoreEntitySet="CatTipoCompetencia">
+          <ScalarProperty Name="idTipoCom" ColumnName="idTipoCom" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatTrimestre">
+      <EntityTypeMapping TypeName="innovaciontibdModel.CatTrimestre">
+        <MappingFragment StoreEntitySet="CatTrimestre">
+          <ScalarProperty Name="idTrimestre" ColumnName="idTrimestre" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+          <ScalarProperty Name="strInicio" ColumnName="strInicio" />
+          <ScalarProperty Name="strFin" ColumnName="strFin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contenido">
+      <EntityTypeMapping TypeName="innovaciontibdModel.Contenido">
+        <MappingFragment StoreEntitySet="Contenido">
+          <ScalarProperty Name="idContenido" ColumnName="idContenido" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+          <ScalarProperty Name="idTema" ColumnName="idTema" />
+          <ScalarProperty Name="idAsignatura" ColumnName="idAsignatura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dosificacion">
+      <EntityTypeMapping TypeName="innovaciontibdModel.Dosificacion">
+        <MappingFragment StoreEntitySet="Dosificacion">
+          <ScalarProperty Name="idDosificacion" ColumnName="idDosificacion" />
+          <ScalarProperty Name="dteDuracionTiempo" ColumnName="dteDuracionTiempo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="innovaciontibdModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="strNombre" ColumnName="strNombre" />
+          <ScalarProperty Name="strAPaterno" ColumnName="strAPaterno" />
+          <ScalarProperty Name="strAMaterno" ColumnName="strAMaterno" />
+          <ScalarProperty Name="idNivel" ColumnName="idNivel" />
+          <ScalarProperty Name="strRFC" ColumnName="strRFC" />
+          <ScalarProperty Name="strCurp" ColumnName="strCurp" />
+          <ScalarProperty Name="strFechaNacimiento" ColumnName="strFechaNacimiento" />
+          <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
+          <ScalarProperty Name="idInstitucion" ColumnName="idInstitucion" />
+          <ScalarProperty Name="idCatEstadoR" ColumnName="idCatEstadoR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Encuadre">
+      <EntityTypeMapping TypeName="innovaciontibdModel.Encuadre">
+        <MappingFragment StoreEntitySet="Encuadre">
+          <ScalarProperty Name="idEncuadre" ColumnName="idEncuadre" />
+          <ScalarProperty Name="dteFechaInicio" ColumnName="dteFechaInicio" />
+          <ScalarProperty Name="dteFechaFin" ColumnName="dteFechaFin" />
+          <ScalarProperty Name="idAsignatura" ColumnName="idAsignatura" />
+          <ScalarProperty Name="idCatGrado" ColumnName="idCatGrado" />
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="idTrimestre" ColumnName="idTrimestre" />
+          <ScalarProperty Name="strDuracion" ColumnName="strDuracion" />
+          <ScalarProperty Name="idTema" ColumnName="idTema" />
+          <ScalarProperty Name="idContenido" ColumnName="idContenido" />
+          <ScalarProperty Name="idProposito" ColumnName="idProposito" />
+          <ScalarProperty Name="idEvaluacion" ColumnName="idEvaluacion" />
+          <ScalarProperty Name="idAprendizaje" ColumnName="idAprendizaje" />
+          <ScalarProperty Name="strInicio" ColumnName="strInicio" />
+          <ScalarProperty Name="strDesarollo" ColumnName="strDesarollo" />
+          <ScalarProperty Name="strFin" ColumnName="strFin" />
+          <ScalarProperty Name="strObservacion" ColumnName="strObservacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instituciones">
+      <EntityTypeMapping TypeName="innovaciontibdModel.Instituciones">
+        <MappingFragment StoreEntitySet="Instituciones">
+          <ScalarProperty Name="idInstintucion" ColumnName="idInstintucion" />
+          <ScalarProperty Name="strNombre" ColumnName="strNombre" />
+          <ScalarProperty Name="strClave" ColumnName="strClave" />
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="idMunicipio" ColumnName="idMunicipio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proposito">
+      <EntityTypeMapping TypeName="innovaciontibdModel.Proposito">
+        <MappingFragment StoreEntitySet="Proposito">
+          <ScalarProperty Name="idProposito" ColumnName="idProposito" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+          <ScalarProperty Name="idTema" ColumnName="idTema" />
+          <ScalarProperty Name="idCatTipoCompetencia" ColumnName="idCatTipoCompetencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="innovaciontibdModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tema">
+      <EntityTypeMapping TypeName="innovaciontibdModel.Tema">
+        <MappingFragment StoreEntitySet="Tema">
+          <ScalarProperty Name="idTema" ColumnName="idTema" />
+          <ScalarProperty Name="strNombre" ColumnName="strNombre" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+          <ScalarProperty Name="idCatJeraquizacion" ColumnName="idCatJeraquizacion" />
+          <ScalarProperty Name="idDosificacion" ColumnName="idDosificacion" />
+          <ScalarProperty Name="idAprendizaje" ColumnName="idAprendizaje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrimestreTema">
+      <EntityTypeMapping TypeName="innovaciontibdModel.TrimestreTema">
+        <MappingFragment StoreEntitySet="TrimestreTema">
+          <ScalarProperty Name="idTrimestre" ColumnName="idTrimestre" />
+          <ScalarProperty Name="idTema" ColumnName="idTema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="innovaciontibdModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="strNickName" ColumnName="strNickName" />
+          <ScalarProperty Name="straMail" ColumnName="straMail" />
+          <ScalarProperty Name="strPassword" ColumnName="strPassword" />
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="database_firewall_rules">
+      <EntityTypeMapping TypeName="innovaciontibdModel.database_firewall_rules">
+        <MappingFragment StoreEntitySet="database_firewall_rules">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+          <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Asignatura_Empleado" TypeName="innovaciontibdModel.Asignatura_Empleado" StoreEntitySet="Asignatura_Empleado">
+      <EndProperty Name="CatAsignatura">
+        <ScalarProperty Name="idAsignatura" ColumnName="idAsignatura" />
+      </EndProperty>
+      <EndProperty Name="Empleado">
+        <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EvaluacionTemas" TypeName="innovaciontibdModel.EvaluacionTemas" StoreEntitySet="EvaluacionTemas">
+      <EndProperty Name="CatInstrumentosEvaluacion">
+        <ScalarProperty Name="idEvaluacion" ColumnName="idEvaluacion" />
+      </EndProperty>
+      <EndProperty Name="Tema">
+        <ScalarProperty Name="idTema" ColumnName="idTema" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

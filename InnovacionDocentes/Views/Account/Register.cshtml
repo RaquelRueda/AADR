@@ -1,0 +1,85 @@
+﻿@model InnovacionDocentes.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Registrarse";
+    Layout = "~/Views/_LayoutRegistrar.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
+
+    <div class="login_wrapper">
+        <div class="animate form login_form">
+            <section class="login_content">
+                <form>
+                    <h1>Crear Cuenta</h1>
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label>Email: </label>
+                        </div>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label>Pass: </label>
+                        </div>
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label>Confirm: </label>
+                        </div>
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class=" col-md-7">
+                            <input type="submit" class="btn btn-primary btn-block" value="Registrarse" />
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+                    <br />
+
+
+                    <div class="clearfix"></div>
+
+                    <div class="separator">
+                        <p class="change_link">
+                            Ya eres miembro ?
+                            @Html.ActionLink("Iniciar Sesion", "Login", new { @class = "to_register" })
+
+                        </p>
+</div>
+                        <div class="clearfix"></div>
+                        <br />
+
+                        <div>
+                            <h1><i class="fa fa-book"></i> Apoyo al Docente!</h1>
+                            <p>©2016 All Rights Reserved. Apoyo Al Docente</p>
+                        </div>
+                    </form>
+</section>
+
+        </div>
+
+    </div>
+
+}
+
+

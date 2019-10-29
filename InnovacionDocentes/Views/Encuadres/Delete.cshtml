@@ -1,0 +1,153 @@
+﻿@model InnovacionDocentes.Models.Encuadre
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Encuadre</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dteFechaInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dteFechaInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dteFechaFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dteFechaFin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strDuracion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strDuracion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idEvaluacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idEvaluacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idAprendizaje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idAprendizaje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strDesarollo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strDesarollo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strFin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strObservacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strObservacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatAsignatura.strDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatAsignatura.strDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatGrado.strDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatGrado.strDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatTrimestre.strDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatTrimestre.strDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contenido.strDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contenido.strDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empleado.strNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empleado.strNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proposito.strDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proposito.strDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tema.strNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tema.strNombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

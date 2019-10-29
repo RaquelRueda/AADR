@@ -1,0 +1,124 @@
+﻿@model IEnumerable<InnovacionDocentes.Models.Encuadre>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Todoso Los Encuatres</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dteFechaInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dteFechaFin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strDuracion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idEvaluacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idAprendizaje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strDesarollo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strFin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strObservacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatAsignatura.strDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatGrado.strDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CatTrimestre.strDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contenido.strDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Empleado.strNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Proposito.strDescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tema.strNombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.dteFechaInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dteFechaFin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strDuracion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idEvaluacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idAprendizaje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strDesarollo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strFin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strObservacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatAsignatura.strDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatGrado.strDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatTrimestre.strDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contenido.strDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empleado.strNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proposito.strDescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tema.strNombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idEncuadre }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idEncuadre }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idEncuadre })
+        </td>
+    </tr>
+}
+
+</table>
