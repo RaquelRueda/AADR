@@ -10,13 +10,14 @@ using InnovacionDocentes.Models;
 
 namespace InnovacionDocentes.Controllers
 {
+    [Authorize (Users ="israelparedesdiaz29@gmail.com")]
     public class EmpleadoesController : Controller
     {
 
         private innovaciontibdEntities1 db = new innovaciontibdEntities1();
 
         // GET: Empleadoes
-        [Authorize(Users = "israelparedesdiaz29@gmail.com")]
+       
         public ActionResult Index()
         {
             var empleado = db.Empleado.Include(e => e.CatEstadoRegistro).Include(e => e.CatNivel).Include(e => e.CatPuesto).Include(e => e.Instituciones);
