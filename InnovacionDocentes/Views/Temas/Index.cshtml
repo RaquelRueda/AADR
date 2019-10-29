@@ -1,0 +1,106 @@
+﻿@model IEnumerable<InnovacionDocentes.Models.Tema>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="right_col" role="main">
+
+        <div class="">
+            <div class="page-title">
+                <div class="title_left">
+                </div>
+
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 ">
+                    <div class="x_panel">
+                        <div class="x_title">
+
+                            <h3>:: Todos Los Temas ::</h3>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+
+
+
+                            <div>
+                                <button type="button" class="btn btn-success btn-small  pull-right"> @Html.ActionLink("Create New", "Create")</button>
+                            </div>
+                            <br />
+                            <br />
+                            <br />
+                            <table class="table table table-striped projects" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            #
+                                        </th>
+                                        <th>
+                                            Nombre
+                                        </th>
+                                        <th>
+                                            Descripción
+                                        </th>
+                                        <th>
+                                            Aprendizaje
+                                        </th>
+                                        <th>
+                                            Jerarquización
+                                        </th>
+                                        <th>
+                                            Dosificación
+                                        </th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.idTema)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.strNombre)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.strDescripcion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Aprendizaje.strDescripcion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CatJerarquizacion.strDescripcion)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Dosificacion.idDosificacion)
+                                        </td>
+
+                                        <td>
+                                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> @Html.ActionLink("Editar", "Edit", new { id = item.idTema }) </a>
+                                            <Hr />
+                                            <a href="#" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-folder"></i>  @Html.ActionLink("Ver", "Details", new { id = item.idTema })
+                                            </a>
+                                            <Hr />
+                                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>   @Html.ActionLink("Eliminar", "Delete", new { id = item.idTema })</a>
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
