@@ -15,6 +15,8 @@ namespace InnovacionDocentes.Controllers
         private innovaciontibdEntities db = new innovaciontibdEntities();
 
         // GET: Instituciones
+
+            [Authorize (Users = "israelparedesdiaz29@gmail.com")]
         public ActionResult Index()
         {
             var instituciones = db.Instituciones.Include(i => i.CatEstado).Include(i => i.CatMunicipio);
