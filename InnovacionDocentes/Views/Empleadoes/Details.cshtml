@@ -1,0 +1,99 @@
+﻿@model InnovacionDocentes.Models.Empleado
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Empleado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.strNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strAPaterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strAPaterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strAMaterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strAMaterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strRFC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strRFC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strCurp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strCurp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strFechaNacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strFechaNacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatEstadoRegistro.strValor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatEstadoRegistro.strValor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatNivel.strDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatNivel.strDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatPuesto.strDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatPuesto.strDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Instituciones.strNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Instituciones.strNombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idEmpleado }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
