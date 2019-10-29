@@ -29,9 +29,6 @@
 
 
 
-                            <div>
-                                <button type="button" class="btn btn-success btn-small  pull-right"> @Html.ActionLink("Create New", "Create")</button>
-                            </div>
                             <br />
                             <br />
                             <br />
@@ -111,17 +108,7 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Instituciones.strNombre)
                                         </td>
-                                        
-
-                                        <td>
-                                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> @Html.ActionLink("Editar", "Edit", new { id = item.idEmpleado }) </a>
-                                            <Hr />
-                                            <a href="#" class="btn btn-primary btn-xs">
-                                                <i class="fa fa-folder"></i>  @Html.ActionLink("Ver", "Details", new { id = item.idEmpleado })
-                                            </a>
-                                            <Hr />
-                                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>   @Html.ActionLink("Eliminar", "Delete", new { id = item.idEmpleado })</a>
-                                        </td>
+                                       
                                     </tr>
                                     }
                                 </tbody>
