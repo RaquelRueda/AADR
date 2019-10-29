@@ -48,6 +48,7 @@ namespace InnovacionDocentes.Controllers
             ViewBag.idProposito = new SelectList(db.Proposito, "idProposito", "strDescripcion");
             ViewBag.idTema = new SelectList(db.Tema, "idTema", "strNombre");
             ViewBag.idAprendizaje = new SelectList(db.Aprendizaje, "idAprendizaje", "strDescripcion");
+            ViewBag.idEvaluacion = new SelectList(db.CatInstrumentosEvaluacion, "idEvaluacion", "strDescripcion");
             return View();
         }
 
