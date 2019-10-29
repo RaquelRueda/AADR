@@ -5,143 +5,280 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+@Html.AntiForgeryToken()
+<div class="right_col" role="main">
 
-<div>
-    <h4>Encuadre</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.dteFechaInicio)
-        </dt>
+    <div class="">
 
-        <dd>
-            @Html.DisplayFor(model => model.dteFechaInicio)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.dteFechaFin)
-        </dt>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Encuadre <small>Inicia tu plan de clases</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
 
-        <dd>
-            @Html.DisplayFor(model => model.dteFechaFin)
-        </dd>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                            <div class="row">
+                                <div class="col-5">
+                                </div>
+                                <div class="col-2">
+                                    <h5>  <label><em><strong>Plan de Clase</strong></em></label></h5>
+                                </div>
+                                <div class="col-4">
+                                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.strDuracion)
-        </dt>
+                            </div>
+                            <table class="table table-bordered" style="width:100%;border-color:black; border-style:solid">
+                                <tr>
+                                    <td>
+                                        <label><strong>Fecha: </strong></label>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-10">
+                                                @Html.EditorFor(model => model.dteFechaInicio, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.dteFechaInicio, "", new { @class = "text-danger" })                        <em>AL</em>
+                                                @Html.EditorFor(model => model.dteFechaFin, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.dteFechaFin, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
 
-        <dd>
-            @Html.DisplayFor(model => model.strDuracion)
-        </dd>
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <label><em>Asignatura: </em></label>
+                                                @Html.DropDownList("idAsignatura", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.idAsignatura, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <label><em>Elaboro: </em></label>
+                                                @Html.DropDownList("idEmpleado", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.idEmpleado, "", new { @class = "text-danger" })
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idEvaluacion)
-        </dt>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <label><em>Grado: </em></label>
+                                                @Html.DropDownList("idCatGrado", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.idCatGrado, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="table table-bordered" style="width:100%;border-color:black; border-style:solid">
+                                <tr>
+                                    <td>
+                                        <label><em>Trimestre: </em></label>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-10">
+                                                @Html.DropDownList("idTrimestre", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.idTrimestre, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
 
-        <dd>
-            @Html.DisplayFor(model => model.idEvaluacion)
-        </dd>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label><em>Duracion: </em></label>
+                                                @Html.EditorFor(model => model.strDuracion, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.strDuracion, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <label><em>Tema: </em></label>
+                                                @Html.DropDownList("idTema", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.idTema, "", new { @class = "text-danger" })
+                                                <button type="button" class="btn btn-default btn-small btn-block "> @Html.ActionLink("Nuevo", "Create", "Temas")</button>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idAprendizaje)
-        </dt>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <label><em>Subtema: </em></label>
+                                                @Html.DropDownList("idContenido", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.idContenido, "", new { @class = "text-danger" })
+                                                <button type="button" class="btn btn-default btn-small btn-block "> @Html.ActionLink("Nuevo", "Create", "Contenidoes")</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
 
-        <dd>
-            @Html.DisplayFor(model => model.idAprendizaje)
-        </dd>
+                            <table class="table table-bordered" style="width:100%;border-color:black; border-style:solid">
+                                <tr>
+                                    <td>
+                                        <label><em>Proposito: </em></label>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-10">
+                                                @Html.DropDownList("idProposito", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.idProposito, "", new { @class = "text-danger" })
+                                                <br />
+                                                <button type="button" class="btn btn-default btn-small btn-block "> @Html.ActionLink("Nuevo", "Create", "Propositoes")</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.strInicio)
-        </dt>
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <label><em>Aprendizaje Esperado: </em></label>
+                                                @Html.DropDownList("idAprendizaje", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.idAprendizaje, "", new { @class = "text-danger" })
+                                                <br />
+                                                <button type="button" class="btn btn-default btn-small btn-block "> @Html.ActionLink("Nuevo", "Create", "Aprendizajes")</button>
+                                            </div>
+                                        </div>
+                                    </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.strInicio)
-        </dd>
+                                </tr>
+                            </table>
+                            <table class="table table-bordered" style="width:100%;border-color:black; border-style:solid">
+                                <tr>
+                                    <td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.strDesarollo)
-        </dt>
+                                        <br />
+                                        <div class="row">
+                                            <label><em>Inicio: </em></label>
+                                            <div class="col-12">
+                                                <textarea @Html.EditorFor(model => model.strInicio, new { htmlAttributes = new { @class = "form-control" } })></textarea>
+                                                @Html.ValidationMessageFor(model => model.strInicio, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <div class="row">
+                                            <label><em>Desarrollo: </em></label>
+                                            <div class="col-12">
+                                                <textarea @Html.EditorFor(model => model.strDesarollo, new { htmlAttributes = new { @class = "form-control", } })></textarea>
+                                                @Html.ValidationMessageFor(model => model.strDesarollo, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
 
-        <dd>
-            @Html.DisplayFor(model => model.strDesarollo)
-        </dd>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label><em> Cierrer: </em></label>
+                                                <textarea @Html.EditorFor(model => model.strFin, new { htmlAttributes = new { @class = "form-control" } })></textarea>
+                                                @Html.ValidationMessageFor(model => model.strFin, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <br /><br />
+                                        <div class="row">
+                                            <label><em>Evaluación: </em></label>
+                                            <div class="col-12">
+                                                <textarea @Html.EditorFor(model => model.idEvaluacion, new { htmlAttributes = new { @class = "form-control" } })></textarea>
+                                                @Html.ValidationMessageFor(model => model.idEvaluacion, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.strFin)
-        </dt>
+                                </tr>
+                            </table>
+                            <table class="table table-bordered" style="width:100%;border-color:black; border-style:solid">
+                                <tr>
+                                    <td>
+                                        <label><em>Recursos: </em></label>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <textarea @Html.EditorFor(model => model.strObservacion, new { htmlAttributes = new { @class = "form-control" } })></textarea>
+                                                @Html.ValidationMessageFor(model => model.strObservacion, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
 
-        <dd>
-            @Html.DisplayFor(model => model.strFin)
-        </dd>
+                                        <div class="row">
+                                            <div class="col-4">
+                                            </div>
+                                            <div class="col-4">
+                                                <label style="align-content:center"><em>                                                                           Vo. Bo.</em></label>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.strObservacion)
-        </dt>
+                                                <br />
+                                                <br />
+                                                <br />
 
-        <dd>
-            @Html.DisplayFor(model => model.strObservacion)
-        </dd>
+                                                <label style="align-content:center"><em>                                    Autoridades de la Institución </em></label>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CatAsignatura.strDescripcion)
-        </dt>
+                                            </div>
+                                            <div class="col-4">
+                                            </div>
+                                        </div>
+                                    </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.CatAsignatura.strDescripcion)
-        </dd>
+                                </tr>
+                            </table>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CatGrado.strDescripcion)
-        </dt>
+                            <table class="table table-bordered" style="width:100%;border-color:black; border-style:solid">
+                                <tr>
+                                    <td>
+                                        <label><em>Observaciones: </em></label>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-12">
 
-        <dd>
-            @Html.DisplayFor(model => model.CatGrado.strDescripcion)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CatTrimestre.strDescripcion)
-        </dt>
+                                            </div>
+                                        </div>
+                                    </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.CatTrimestre.strDescripcion)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Contenido.strDescripcion)
-        </dt>
+                                </tr>
+                            </table>
+                            <div class="ln_solid"></div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 ">
+                                    <button class="btn btn-default"> @Html.ActionLink("Cancelar", "Index", "Encuadres")</button>
+                                </div>
+                                <div class="col-md-4 col-sm-4 "></div>
+                                <div class="col-md-4 col-sm-4 ">
 
-        <dd>
-            @Html.DisplayFor(model => model.Contenido.strDescripcion)
-        </dd>
+                                    <button type="submit" class="btn btn-success">Guardar</button>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Empleado.strNombre)
-        </dt>
+                                </div>
+                            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Empleado.strNombre)
-        </dd>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Proposito.strDescripcion)
-        </dt>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Proposito.strDescripcion)
-        </dd>
+    <div class="clearfix"></div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tema.strNombre)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tema.strNombre)
-        </dd>
-
-    </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idEncuadre }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+}
