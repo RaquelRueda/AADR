@@ -1,0 +1,43 @@
+﻿@model InnovacionDocentes.Models.Proposito
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Proposito</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.strDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatTipoCompetencia.strDescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatTipoCompetencia.strDescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tema.strNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tema.strNombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idProposito }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
