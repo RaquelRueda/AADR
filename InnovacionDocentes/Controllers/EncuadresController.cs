@@ -47,6 +47,7 @@ namespace InnovacionDocentes.Controllers
             ViewBag.idEmpleado = new SelectList(db.Empleado, "idEmpleado", "strNombre");
             ViewBag.idProposito = new SelectList(db.Proposito, "idProposito", "strDescripcion");
             ViewBag.idTema = new SelectList(db.Tema, "idTema", "strNombre");
+            ViewBag.idAprendizaje = new SelectList(db.Aprendizaje, "idAprendizaje", "strDescripcion");
             return View();
         }
 
@@ -71,6 +72,7 @@ namespace InnovacionDocentes.Controllers
             ViewBag.idEmpleado = new SelectList(db.Empleado, "idEmpleado", "strNombre", encuadre.idEmpleado);
             ViewBag.idProposito = new SelectList(db.Proposito, "idProposito", "strDescripcion", encuadre.idProposito);
             ViewBag.idTema = new SelectList(db.Tema, "idTema", "strNombre", encuadre.idTema);
+            ViewBag.idAprendizaje = new SelectList(db.Aprendizaje, "idAprendizaje", "strDescripcion", encuadre.idAprendizaje);
             return View(encuadre);
         }
 
@@ -93,6 +95,7 @@ namespace InnovacionDocentes.Controllers
             ViewBag.idEmpleado = new SelectList(db.Empleado, "idEmpleado", "strNombre", encuadre.idEmpleado);
             ViewBag.idProposito = new SelectList(db.Proposito, "idProposito", "strDescripcion", encuadre.idProposito);
             ViewBag.idTema = new SelectList(db.Tema, "idTema", "strNombre", encuadre.idTema);
+            ViewBag.idAprendizaje = new SelectList(db.Aprendizaje, "idAprendizaje", "strDescripcion", encuadre.idAprendizaje);
             return View(encuadre);
         }
 
@@ -116,6 +119,8 @@ namespace InnovacionDocentes.Controllers
             ViewBag.idEmpleado = new SelectList(db.Empleado, "idEmpleado", "strNombre", encuadre.idEmpleado);
             ViewBag.idProposito = new SelectList(db.Proposito, "idProposito", "strDescripcion", encuadre.idProposito);
             ViewBag.idTema = new SelectList(db.Tema, "idTema", "strNombre", encuadre.idTema);
+
+            ViewBag.idAprendizaje = new SelectList(db.Aprendizaje, "idAprendizaje", "strDescripcion", encuadre.idAprendizaje);
             return View(encuadre);
         }
 
