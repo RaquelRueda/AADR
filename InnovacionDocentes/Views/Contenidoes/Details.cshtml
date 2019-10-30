@@ -5,76 +5,75 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div class="right_col" role="main">
+<div class="right_col" role="main">
 
-        <div class="">
-            <div class="clearfix"></div>
-            <div class="row">
-                <div class="col-md-12 col-sm-12 ">
-                    <div class="x_panel">
-                        <div class="x_title">
-                            <h2>Contenidos <small>Detalles</small></h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li>
-                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
+    <div class="">
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Contenidos <small>detalles del elemento</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
 
-                                <li>
-                                    <a class="close-link"><i class="fa fa-close"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content">
-                            <br />
-                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
-                                <div class="form-group">
-                                    <div class="control-label col-md-2">
-                                        Tema
-                                    </div>
-                                    <div class="col-md-10">
-                                        @Html.EditorFor(model => model.strDescripcion, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.strDescripcion, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                <br /> <br />  <br />
-                                <div class="form-group">
-                                    <div class="control-label col-md-2">
-                                        Tema
-                                    </div>
-                                    <div class="col-md-10">
-                                        @Html.DropDownList("idTema", null, htmlAttributes: new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.idTema, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                <br /> <br />  <br />
-                                <div class="form-group">
-                                    <div class="control-label col-md-2">
-                                        Asignatura
-                                    </div>
-                                    <div class="col-md-10">
-                                        @Html.DropDownList("idAsignatura", null, htmlAttributes: new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.idAsignatura, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                <br /> <br />
-                                <div class="ln_solid"></div>
-                                <div class="item form-group">
-                                    <div class="col-md-6 col-sm-6 offset-md-3">
-                                        <button class="btn btn-default" type="button"> @Html.ActionLink("Regresar", "Index")</button>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
                     </div>
+                    <div class="x_content">
+                        <div class="col-md-12 col-sm-12  profile_details">
+                            <div class="well profile_view col-md-8">
+                                <div class="col-sm-12">
+
+                                    <div class="left col-md-7 col-sm-7">
+                                        <h2 class="brief">Contenidos</h2>
+
+                                    </div>
+                                    <div class="right col-md-12 col-sm-12 text-center">
+                                        <img src="~/Content/production/images/aprendizajesignificativo1_small.png" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                                <div class=" profile-bottom text-center">
+                                    <p><strong>Descripción: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.strDescripcion) </li>
+
+                                    </ul>
+                                    <p><strong>Asignatura: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.CatAsignatura.strDescripcion) </li>
+
+                                    </ul>
+                                    <p><strong>Tema: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.Tema.strNombre) </li>
+
+                                    </ul>
+                                    <br />  <br />
+                                    <div class=" col-sm-12 emphasis">
+                                        <button type="button" class="btn btn-success btn-sm">
+                                            <i class="fa fa-back"></i> @Html.ActionLink("Regresar", "Index")
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-pencil"> </i>  @Html.ActionLink("Editar", "Edit", new { id = Model.idContenido })
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-}
