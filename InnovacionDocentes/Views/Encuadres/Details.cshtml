@@ -4,19 +4,15 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@Html.AntiForgeryToken()
 <div class="right_col" role="main">
 
     <div class="">
-
-
         <div class="clearfix"></div>
         <div class="row">
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Encuadre <small>Detalles</small></h2>
+                        <h2>Encuadres <small>detalles del elemento</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li>
                                 <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -29,254 +25,111 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <br />
-                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-                            <div class="row">
-                                <div class="col-5">
+                        <div class="col-md-12 col-sm-12  profile_details">
+                            <div class="well profile_view col-md-8">
+                                <div class="col-sm-12">
+
+                                    <div class="left col-md-7 col-sm-7">
+                                        <h2 class="brief">Encuadres</h2>
+
+                                    </div>
+                                    <div class="right col-md-12 col-sm-12 text-center">
+                                        <img src="~/Content/production/images/aprendizajesignificativo1_small.png" alt="" class="img-circle img-fluid">
+                                    </div>
                                 </div>
-                                <div class="col-2">
-                                    <h5>  <label><em><strong>Plan de Clase</strong></em></label></h5>
-                                </div>
-                                <div class="col-4">
-                                </div>
+                                <div class=" profile-bottom text-center">
+                                    <p><strong>Fecha inicio: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.CatTrimestre.strInicio) </li>
 
-                            </div>
-                            <table class="table table-bordered" style="width:100%;border-color:black; border-style:solid">
-                                <tr>
-                                    <td>
-                                        <label><strong>Fecha: </strong></label>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-10">
-                                                @Html.EditorFor(model => model.dteFechaInicio, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.dteFechaInicio, "", new { @class = "text-danger" })                        <em>AL</em>
-                                                @Html.EditorFor(model => model.dteFechaFin, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.dteFechaFin, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
+                                    </ul>
+                                    <p><strong>Fecha fin: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.CatTrimestre.strFin) </li>
 
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <label><em>Asignatura: </em></label>
-                                                @Html.DropDownList("idAsignatura", null, htmlAttributes: new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.idAsignatura, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <label><em>Elaboro: </em></label>
-                                                @Html.DropDownList("idEmpleado", null, htmlAttributes: new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.idEmpleado, "", new { @class = "text-danger" })
+                                    </ul>
+                                    <p><strong>Trimestre: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.CatTrimestre.strDescripcion) </li>
 
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <label><em>Grado: </em></label>
-                                                @Html.DropDownList("idCatGrado", null, htmlAttributes: new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.idCatGrado, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                            <table class="table table-bordered" style="width:100%;border-color:black; border-style:solid">
-                                <tr>
-                                    <td>
-                                        <label><em>Trimestre: </em></label>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-10">
-                                                @Html.DropDownList("idTrimestre", null, htmlAttributes: new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.idTrimestre, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
+                                    </ul>
+                                    <p><strong>Duración: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.strDuracion) </li>
 
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <label><em>Duracion: </em></label>
-                                                @Html.EditorFor(model => model.strDuracion, new { htmlAttributes = new { @class = "form-control" } })
-                                                @Html.ValidationMessageFor(model => model.strDuracion, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <label><em>Tema: </em></label>
-                                                @Html.DropDownList("idTema", null, htmlAttributes: new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.idTema, "", new { @class = "text-danger" })
-                                                <button type="button" class="btn btn-default btn-small btn-block "> @Html.ActionLink("Nuevo", "Create", "Temas")</button>
+                                    </ul>
+                                    <p><strong>Asignatura: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.CatAsignatura.strDescripcion) </li>
 
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <label><em>Subtema: </em></label>
-                                                @Html.DropDownList("idContenido", null, htmlAttributes: new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.idContenido, "", new { @class = "text-danger" })
-                                                <button type="button" class="btn btn-default btn-small btn-block "> @Html.ActionLink("Nuevo", "Create", "Contenidoes")</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
+                                    </ul>
+                                    <p><strong>Elaboro: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.Empleado.strNombre) </li>
 
-                            <table class="table table-bordered" style="width:100%;border-color:black; border-style:solid">
-                                <tr>
-                                    <td>
-                                        <label><em>Proposito: </em></label>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-10">
-                                                @Html.DropDownList("idProposito", null, htmlAttributes: new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.idProposito, "", new { @class = "text-danger" })
-                                                <br />
-                                                <button type="button" class="btn btn-default btn-small btn-block "> @Html.ActionLink("Nuevo", "Create", "Propositoes")</button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
+                                    </ul>
+                                    <p><strong>Tema: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.Tema.strNombre) </li>
 
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <label><em>Aprendizaje Esperado: </em></label>
-                                                @Html.DropDownList("idAprendizaje", null, htmlAttributes: new { @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.idAprendizaje, "", new { @class = "text-danger" })
-                                                <br />
-                                                <button type="button" class="btn btn-default btn-small btn-block "> @Html.ActionLink("Nuevo", "Create", "Aprendizajes")</button>
-                                            </div>
-                                        </div>
-                                    </td>
+                                    </ul>
+                                    <p><strong>Subtema: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.Contenido.strDescripcion) </li>
 
-                                </tr>
-                            </table>
-                            <table class="table table-bordered" style="width:100%;border-color:black; border-style:solid">
-                                <tr>
-                                    <td>
+                                    </ul>
+                                    <p><strong>Proposito: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.Proposito.strDescripcion) </li>
 
-                                        <br />
-                                        <div class="row">
-                                            <label><em>Inicio: </em></label>
-                                            <div class="col-12">
-                                                <textarea @Html.EditorFor(model => model.strInicio, new { htmlAttributes = new { @class = "form-control" } })></textarea>
-                                                @Html.ValidationMessageFor(model => model.strInicio, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                        <br />
-                                        <br />
-                                        <div class="row">
-                                            <label><em>Desarrollo: </em></label>
-                                            <div class="col-12">
-                                                <textarea @Html.EditorFor(model => model.strDesarollo, new { htmlAttributes = new { @class = "form-control", } })></textarea>
-                                                @Html.ValidationMessageFor(model => model.strDesarollo, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
+                                    </ul>
+                                    <p><strong>Aprendizaje: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.idAprendizaje) </li>
 
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <label><em> Cierrer: </em></label>
-                                                <textarea @Html.EditorFor(model => model.strFin, new { htmlAttributes = new { @class = "form-control" } })></textarea>
-                                                @Html.ValidationMessageFor(model => model.strFin, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                        <br /><br />
-                                        <div class="row">
-                                            <label><em>Evaluación: </em></label>
-                                            <div class="col-12">
-                                                <textarea @Html.EditorFor(model => model.idEvaluacion, new { htmlAttributes = new { @class = "form-control" } })></textarea>
-                                                @Html.ValidationMessageFor(model => model.idEvaluacion, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </td>
+                                    </ul>
+                                    <p><strong>Inicio: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.strInicio) </li>
 
-                                </tr>
-                            </table>
-                            <table class="table table-bordered" style="width:100%;border-color:black; border-style:solid">
-                                <tr>
-                                    <td>
-                                        <label><em>Recursos: </em></label>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <textarea @Html.EditorFor(model => model.strObservacion, new { htmlAttributes = new { @class = "form-control" } })></textarea>
-                                                @Html.ValidationMessageFor(model => model.strObservacion, "", new { @class = "text-danger" })
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
+                                    </ul>
+                                    <p><strong>Desarrollo: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.strDesarollo) </li>
 
-                                        <div class="row">
-                                            <div class="col-4">
-                                            </div>
-                                            <div class="col-4">
-                                                <label style="align-content:center"><em>                                                                           Vo. Bo.</em></label>
-
-                                                <br />
-                                                <br />
-                                                <br />
-
-                                                <label style="align-content:center"><em>                                    Autoridades de la Institución </em></label>
-
-                                            </div>
-                                            <div class="col-4">
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </table>
-
-                            <table class="table table-bordered" style="width:100%;border-color:black; border-style:solid">
-                                <tr>
-                                    <td>
-                                        <label><em>Observaciones: </em></label>
-                                        <br />
-                                        <div class="row">
-                                            <div class="col-12">
+                                    </ul>
+                                    <p><strong>Cierre: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.strFin) </li>
 
 
-                                            </div>
-                                        </div>
-                                    </td>
+                                    </ul>
+                                    <p><strong>Cierre: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.strObservacion) </li>
 
 
-                                </tr>
-                            </table>
-                            <div class="ln_solid"></div>
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4 ">
-                                    <button class="btn btn-default"> @Html.ActionLink("Regresar", "Index", "Encuadres")</button>
-                                </div>
-                                <div class="col-md-4 col-sm-4 "></div>
-                                <div class="col-md-4 col-sm-4 ">
-
+                                    </ul>
+                                    <br />  <br />
+                                    <div class=" col-sm-12 emphasis">
+                                        <button type="button" class="btn btn-success btn-sm">
+                                            <i class="fa fa-back"></i> @Html.ActionLink("Regresar", "Index")
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-pencil"> </i>  @Html.ActionLink("Editar", "Edit", new { id = Model.idEncuadre })
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                        </form>
                     </div>
+
+
+
                 </div>
             </div>
         </div>
-
     </div>
-
-    <div class="clearfix"></div>
-
-
 </div>
 
-}
