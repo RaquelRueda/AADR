@@ -5,39 +5,76 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="right_col" role="main">
 
-<div>
-    <h4>Contenido</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.strDescripcion)
-        </dt>
+        <div class="">
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 ">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Contenidos <small>Detalles</small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
 
-        <dd>
-            @Html.DisplayFor(model => model.strDescripcion)
-        </dd>
+                                <li>
+                                    <a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br />
+                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CatAsignatura.strDescripcion)
-        </dt>
+                                <div class="form-group">
+                                    <div class="control-label col-md-2">
+                                        Tema
+                                    </div>
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.strDescripcion, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.strDescripcion, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br /> <br />  <br />
+                                <div class="form-group">
+                                    <div class="control-label col-md-2">
+                                        Tema
+                                    </div>
+                                    <div class="col-md-10">
+                                        @Html.DropDownList("idTema", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.idTema, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br /> <br />  <br />
+                                <div class="form-group">
+                                    <div class="control-label col-md-2">
+                                        Asignatura
+                                    </div>
+                                    <div class="col-md-10">
+                                        @Html.DropDownList("idAsignatura", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.idAsignatura, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <br /> <br />
+                                <div class="ln_solid"></div>
+                                <div class="item form-group">
+                                    <div class="col-md-6 col-sm-6 offset-md-3">
+                                        <button class="btn btn-default" type="button"> @Html.ActionLink("Regresar", "Index")</button>
+                                    </div>
+                                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.CatAsignatura.strDescripcion)
-        </dd>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tema.strNombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tema.strNombre)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idContenido }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+}
