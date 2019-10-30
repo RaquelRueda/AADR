@@ -5,55 +5,85 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="right_col" role="main">
 
-<div>
-    <h4>Tema</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.strNombre)
-        </dt>
+    <div class="">
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Temas <small>detalles del elemento</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
 
-        <dd>
-            @Html.DisplayFor(model => model.strNombre)
-        </dd>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="col-md-12 col-sm-12  profile_details">
+                            <div class="well profile_view col-md-8">
+                                <div class="col-sm-12">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.strDescripcion)
-        </dt>
+                                    <div class="left col-md-7 col-sm-7">
+                                        <h2 class="brief">Temas</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.strDescripcion)
-        </dd>
+                                    </div>
+                                    <div class="right col-md-12 col-sm-12 text-center">
+                                        <img src="~/Content/production/images/aprendizajesignificativo1_small.png" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                                <div class=" profile-bottom text-center">
+                                    <p><strong>Nombre: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.strNombre) </li>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Aprendizaje.strDescripcion)
-        </dt>
+                                    </ul>
+                                    <p><strong>Descripción: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.strDescripcion) </li>
 
-        <dd>
-            @Html.DisplayFor(model => model.Aprendizaje.strDescripcion)
-        </dd>
+                                    </ul>
+                                    <p><strong>Aprendizaje: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.Aprendizaje.strDescripcion) </li>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CatJerarquizacion.strDescripcion)
-        </dt>
+                                    </ul>
+                                    <p><strong>Jerarquización: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.CatJerarquizacion.strDescripcion) </li>
 
-        <dd>
-            @Html.DisplayFor(model => model.CatJerarquizacion.strDescripcion)
-        </dd>
+                                    </ul>
+                                    <p><strong>Dosificación: </strong>  </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-check"></i>   @Html.DisplayFor(model => model.Dosificacion.idDosificacion) </li>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Dosificacion.idDosificacion)
-        </dt>
+                                    </ul>
+                                    <br />  <br />
+                                    <div class=" col-sm-12 emphasis">
+                                        <button type="button" class="btn btn-success btn-sm">
+                                            <i class="fa fa-back"></i> @Html.ActionLink("Regresar", "Index")
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-pencil"> </i>  @Html.ActionLink("Editar", "Edit", new { id = Model.idTema })
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Dosificacion.idDosificacion)
-        </dd>
+                    </div>
 
-    </dl>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idTema }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
