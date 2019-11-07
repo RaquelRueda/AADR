@@ -12,7 +12,7 @@ namespace InnovacionDocentes.Controllers
 {
     public class UsuariosController : Controller
     {
-        private innovaciontibdEntities1 db = new innovaciontibdEntities1();
+        private innovaciontibdEntities db = new innovaciontibdEntities();
 
         // GET: Usuarios
         public ActionResult Index()

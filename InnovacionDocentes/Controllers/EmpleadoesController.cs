@@ -10,14 +10,14 @@ using InnovacionDocentes.Models;
 
 namespace InnovacionDocentes.Controllers
 {
-    [Authorize(Users="israelparedesdiaz29@gmail.com")]
+   
     public class EmpleadoesController : Controller
     {
 
-        private innovaciontibdEntities1 db = new innovaciontibdEntities1();
+        private innovaciontibdEntities db = new innovaciontibdEntities();
 
         // GET: Empleadoes
-       
+        [Authorize(Users  = "israelparedesdiaz29@gmail.com")]
         public ActionResult Index()
         {
             var empleado = db.Empleado.Include(e => e.CatEstadoRegistro).Include(e => e.CatNivel).Include(e => e.CatPuesto).Include(e => e.Instituciones);
@@ -70,7 +70,7 @@ namespace InnovacionDocentes.Controllers
             ViewBag.idInstitucion = new SelectList(db.Instituciones, "idInstintucion", "strNombre", empleado.idInstitucion);
             return View(empleado);
         }
-
+        [Authorize(Users =  "israelparedesdiaz29@gmail.com")]
         // GET: Empleadoes/Edit/5
         public ActionResult Edit(int? id)
         {

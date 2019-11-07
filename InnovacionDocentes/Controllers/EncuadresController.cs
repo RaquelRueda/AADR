@@ -13,7 +13,7 @@ namespace InnovacionDocentes.Controllers
     
     public class EncuadresController : Controller
     {
-        private innovaciontibdEntities1 db = new innovaciontibdEntities1();
+        private innovaciontibdEntities db = new innovaciontibdEntities();
 
         // GET: Encuadres
         public ActionResult Index()
@@ -38,6 +38,7 @@ namespace InnovacionDocentes.Controllers
         }
 
         // GET: Encuadres/Create
+        [Authorize(Users = "raquel.marlen.99@gmail.com")]
         public ActionResult Create()
         {
             ViewBag.idAsignatura = new SelectList(db.CatAsignatura, "idAsignatura", "strDescripcion");
@@ -79,6 +80,7 @@ namespace InnovacionDocentes.Controllers
         }
 
         // GET: Encuadres/Edit/5
+        [Authorize(Users = "raquel.marlen.99@gmail.com")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -128,6 +130,7 @@ namespace InnovacionDocentes.Controllers
         }
 
         // GET: Encuadres/Delete/5
+        [Authorize(Users = "raquel.marlen.99@gmail.com")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
