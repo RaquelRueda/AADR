@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9f2f45dcc68c45d0b542b9cc91db879a" Name="Diagram1">
+        <EntityTypeShape EntityType="innovaciontibdModel.C__MigrationHistory" Width="1.5" PointX="10.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.Aprendizaje" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.CatAsignatura" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.CatEstado" Width="1.5" PointX="6" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.CatEstadoRegistro" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.CatGrado" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.CatInstrumentosEvaluacion" Width="1.5" PointX="13.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.CatJerarquizacion" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.CatMunicipio" Width="1.5" PointX="6" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.CatNivel" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.CatPuesto" Width="1.5" PointX="8.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.CatTipoCompetencia" Width="1.5" PointX="11.25" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.CatTrimestre" Width="1.5" PointX="13.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.Contenido" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.Dosificacion" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.Empleado" Width="1.5" PointX="10.5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.Encuadre" Width="1.5" PointX="15.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.Instituciones" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.Proposito" Width="1.5" PointX="13.5" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.Tema" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.TrimestreTema" Width="1.5" PointX="15.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.Usuario" Width="1.5" PointX="12.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="innovaciontibdModel.database_firewall_rules" Width="1.5" PointX="12.75" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Tema_dbo_Aprendizaje_idAprendizaje" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_CatAsignatura_dbo_CatGrado_idCatGrado" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Contenido_dbo_CatAsignatura_idAsignatura" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Encuadre_dbo_CatAsignatura_idAsignatura" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_CatMunicipio_dbo_CatEstado_idCatEstado" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Instituciones_dbo_CatEstado_idEstado" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Empleado_dbo_CatEstadoRegistro_idCatEstadoR" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_CatGrado_dbo_CatNivel_idNivel" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Encuadre_dbo_CatGrado_idCatGrado" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_Encuadre_CatInstrumentosEvaluacion" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Tema_dbo_CatJerarquizacion_idCatJeraquizacion" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Instituciones_dbo_CatMunicipio_idMunicipio" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Empleado_dbo_CatNivel_idNivel" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Empleado_dbo_CatPuesto_idPuesto" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Proposito_dbo_CatTipoCompetencia_idCatTipoCompetencia" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Encuadre_dbo_CatTrimestre_idTrimestre" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_TrimestreTema_dbo_CatTrimestre_idTrimestre" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Contenido_dbo_Tema_idTema" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Encuadre_dbo_Contenido_idContenido" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Tema_dbo_Dosificacion_idDosificacion" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Empleado_dbo_Instituciones_idInstitucion" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Encuadre_dbo_Empleado_idEmpleado" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Usuario_dbo_Empleado_idEmpleado" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Encuadre_dbo_Proposito_idProposito" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Encuadre_dbo_Tema_idTema" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.FK_dbo_Proposito_dbo_Tema_idTema" ManuallyRouted="false" />
+        <AssociationConnector Association="innovaciontibdModel.Asignatura_Empleado" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
