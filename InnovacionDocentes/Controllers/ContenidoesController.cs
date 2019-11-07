@@ -10,7 +10,7 @@ using InnovacionDocentes.Models;
 
 namespace InnovacionDocentes.Controllers
 {
-    [Authorize(Users = "raquel.marlen.99@gmail.com")]
+    [Authorize(Users ="raquel.marlen.99@gmail.com")]
     public class ContenidoesController : Controller
     {
         private innovaciontibdEntities db = new innovaciontibdEntities();

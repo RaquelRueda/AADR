@@ -40,7 +40,7 @@ namespace InnovacionDocentes.Controllers
         }
 
         // GET: Empleadoes/Create
-        [Authorize(Users = "israelparedesdiaz29@gmail.com")]
+     
         public ActionResult Create()
         {
             ViewBag.idCatEstadoR = new SelectList(db.CatEstadoRegistro, "idEstadoRegistro", "strValor");
