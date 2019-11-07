@@ -1,0 +1,11 @@
+﻿		Sistema apoyo al docente.
+
+Usuario con rol de Director
+usuario : israelparedesdiaz29@gmail.com
+contraseña :290699ipdF2+@
+
+Usuario con rol de profesor:
+usuario :raquel.marlen.99@gmail.com
+contraseña: marlen11R@
+
+
